@@ -1,0 +1,37 @@
+// Main Colors
+$primary-blue: hsl(217, 73%, 44%);
+$primary-light: rgb(127, 174, 248);
+$primary-dark: hsl(225, 91%, 13%);
+$primary-white: hsl(0, 0%, 100%);
+$primary-grey: hsl(210, 1%, 47%);
+
+// Responsive Breakpoints
+
+$breakPoints: (
+  'mobile': (
+    max-width: 35.93rem,
+  ),
+  'tablet': (
+    max-width: 48rem,
+  ),
+  'laptop': (
+    max-width: 62rem,
+  ),
+  'desktop': (
+    min-width: 75rem,
+  ),
+);
+
+// Fonts
+
+$mainTitle: clamp(2rem, 3vw, 3.5rem);
+$subTitle: clamp(1.6rem, 2vw, 3rem);
+$bodyDetails: clamp(1rem, 1.2vw, 1.5rem);
+$allBtn: clamp(1rem, 1.4vw, 1.8rem);
+
+// Font Weight
+
+$fontBolder: 600;
+$fontBold: 500;
+$fontNormal: 400;
+$fontLight: 300;

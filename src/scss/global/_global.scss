@@ -1,0 +1,22 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+a,
+ul {
+  text-decoration: none;
+  list-style: none;
+}
+img {
+  max-width: 100%;
+}

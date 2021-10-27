@@ -1,0 +1,52 @@
+.main {
+  position: relative;
+  width: calc(100vw - 18.75rem);
+  top: 5rem;
+  left: 18.75rem;
+  transition: all 0.2s ease-in-out;
+
+  .container {
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+
+    .card {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      height: 100%;
+      @include flexRowCenter(center, space-between);
+      background: $primary-white;
+      box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.08);
+      border-radius: 0.5rem;
+
+      .text {
+        p {
+          @include fontTitle($primary-grey);
+          margin-bottom: 0;
+        }
+        small {
+          @include fontDetails($primary-grey, $fontLight);
+        }
+      }
+      .icon {
+        @include fontTitle($primary-blue);
+        margin-bottom: 0;
+      }
+    }
+    @include breakPoint('tablet') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakPoint('mobile') {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &.active {
+    width: calc(100vw - 5.75rem);
+    left: 5.75rem;
+  }
+}

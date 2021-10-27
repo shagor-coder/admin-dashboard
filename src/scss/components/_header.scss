@@ -1,0 +1,70 @@
+.header {
+  width: calc(100% - 18.75rem);
+  position: absolute;
+  top: 0;
+  left: 18.75rem;
+  transition: all 0.2s ease-in-out;
+
+  .header-container {
+    width: 100%;
+    padding: 0.5rem 1rem;
+
+    .header-items {
+      width: 100%;
+      height: 4rem;
+      @include flexRowCenter(center, space-between);
+
+      .item {
+        height: 4rem;
+        @include flexRowCenter(center, center);
+      }
+    }
+    .toggler {
+      width: 2.5rem;
+      height: 2.5rem;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+      @include flexRowCenter(center, center);
+      @include fontSubTitle($primary-dark);
+      margin-bottom: 0;
+      cursor: pointer;
+      border-radius: 0.5rem;
+    }
+    .search {
+      @include flexRowCenter(center, center);
+      color: $primary-grey;
+      position: relative;
+
+      input {
+        @include flexRowCenter(center, center);
+        width: 100%;
+        height: 2rem;
+        outline: none;
+        border: 1px solid $primary-grey;
+        border-radius: 100vh;
+        padding: 0.5rem 1rem 0.5rem 1.6rem;
+      }
+      .search-icon {
+        position: absolute;
+        top: 0.25rem;
+        left: 0;
+        width: 2rem;
+        height: 80%;
+      }
+    }
+    .photo {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      img {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &.active {
+    width: calc(100% - 5.75rem);
+    left: 5.75rem;
+  }
+}
