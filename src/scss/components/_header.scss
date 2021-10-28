@@ -1,8 +1,8 @@
 .header {
-  width: calc(100% - 18.75rem);
+  width: calc(100% - 15.75rem);
   position: absolute;
   top: 0;
-  left: 18.75rem;
+  left: 15.75rem;
   transition: all 0.2s ease-in-out;
 
   .header-container {
@@ -66,5 +66,22 @@
   &.active {
     width: calc(100% - 5.75rem);
     left: 5.75rem;
+  }
+
+  @include breakPoint('tablet') {
+    width: 100%;
+    left: 0;
+    &.active {
+      width: 100%;
+      left: 0;
+      .header-items {
+        .toggler {
+          position: absolute;
+          z-index: 1000;
+          right: 1rem;
+          @include fontSubTitle($primary-white);
+        }
+      }
+    }
   }
 }

@@ -1,8 +1,8 @@
 .main {
   position: relative;
-  width: calc(100vw - 18.75rem);
+  width: calc(100% - 15.75rem);
   top: 5rem;
-  left: 18.75rem;
+  left: 15.75rem;
   transition: all 0.2s ease-in-out;
 
   .container {
@@ -13,6 +13,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0.5rem;
+    transition: all 0.2s ease-in-out;
 
     .card {
       width: 100%;
@@ -22,10 +23,11 @@
       background: $primary-white;
       box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.08);
       border-radius: 0.5rem;
+      transition: all 0.2s ease-in-out;
 
       .text {
         p {
-          @include fontTitle($primary-grey);
+          @include fontTitle($primary-blue);
           margin-bottom: 0;
         }
         small {
@@ -36,8 +38,26 @@
         @include fontTitle($primary-blue);
         margin-bottom: 0;
       }
+
+      &:hover {
+        background: $primary-blue;
+
+        .text {
+          p {
+            @include fontTitle($primary-white);
+            margin-bottom: 0;
+          }
+          small {
+            @include fontDetails($primary-white, $fontLight);
+          }
+        }
+        .icon {
+          @include fontTitle($primary-white);
+          margin-bottom: 0;
+        }
+      }
     }
-    @include breakPoint('tablet') {
+    @include breakPoint('laptop') {
       grid-template-columns: repeat(2, 1fr);
     }
     @include breakPoint('mobile') {
@@ -45,8 +65,164 @@
     }
   }
 
+  .data {
+    .data-wrapper {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 2fr 1fr;
+      min-height: 400px;
+      @include breakPoint('tablet') {
+        grid-template-columns: 1fr;
+      }
+
+      // Recent Orders
+      .recent-orders {
+        width: 100%;
+        white-space: nowrap;
+        overflow-x: scroll;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 25px rgba(0, 0, 0, 0.109);
+        .orders-header {
+          @include flexRowCenter(center, space-between);
+          margin-bottom: 0.5rem;
+
+          h2 {
+            @include fontSubTitle($primary-grey);
+            margin-bottom: 0;
+          }
+
+          .orders-cta {
+            a {
+              @include btnStyle($primary-blue);
+            }
+          }
+        }
+
+        .data-table {
+          width: 100%;
+          border-collapse: collapse;
+          text-align: left;
+
+          thead {
+            tr {
+              th {
+                @include fontDetails($primary-dark, $fontBold);
+                padding: 0.5rem 0.25rem;
+                &:nth-child(3) {
+                  text-align: center;
+                }
+              }
+              &:hover {
+                background: $primary-white;
+              }
+            }
+          }
+
+          tr {
+            border-bottom: 1px solid $primary-grey;
+            transition: all 0.2s ease-in-out;
+            td {
+              @include fontDetails($primary-grey, $fontNormal);
+              padding: 0.6rem 0.25rem;
+
+              span.status {
+                @include btnStyle($primary-green);
+                padding: 0.25rem;
+                font-size: clamp(0.8rem, 0.8vw, 1rem);
+              }
+              span.status.delivered {
+                background-color: $primary-green;
+              }
+              span.status.pending {
+                background-color: $primary-orange;
+              }
+              span.status.return {
+                background-color: $primary-red;
+              }
+              span.status.progress {
+                background-color: $primary-blue;
+              }
+
+              &:nth-child(3) {
+                text-align: center;
+              }
+            }
+
+            &:hover {
+              background-color: $primary-blue;
+              td {
+                @include fontDetails($primary-white, $fontNormal);
+              }
+            }
+          }
+        }
+      }
+      // // Recent Orders
+      .recent-customers {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 25px rgba(0, 0, 0, 0.109);
+        .customers-header {
+          h3 {
+            @include fontSubTitle($primary-grey);
+          }
+        }
+
+        .customer {
+          @include flexRowCenter(center, flex-start);
+          padding: 0 0.875rem;
+          margin-bottom: 0.6rem;
+          transition: all 0.2s ease-in-out;
+          .img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+            }
+          }
+          .text {
+            margin-left: 1rem;
+            p {
+              @include fontDetails($primary-dark, $fontBold);
+              margin-bottom: 0;
+            }
+            small {
+              font-size: 1rem;
+              color: $primary-grey;
+              font-weight: $fontNormal;
+            }
+          }
+          &:hover {
+            background: $primary-blue;
+
+            .text {
+              p,
+              small {
+                color: $primary-white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   &.active {
-    width: calc(100vw - 5.75rem);
+    width: calc(100% - 5.75rem);
     left: 5.75rem;
+  }
+
+  @include breakPoint('tablet') {
+    width: 100%;
+    left: 0;
+
+    &.active {
+      width: 100%;
+      left: 0;
+    }
   }
 }

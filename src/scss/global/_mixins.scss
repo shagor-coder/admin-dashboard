@@ -9,7 +9,7 @@
 
 // Fonts
 
-// Header
+// Header Fonts
 
 @mixin fontTitle($fontColor) {
   font-size: $mainTitle;
@@ -23,6 +23,7 @@
   color: $fontColor;
   margin-bottom: 1.5rem;
 }
+// Body Fonts
 @mixin fontDetails($fontColor, $fontWeight) {
   font-size: $bodyDetails;
   font-weight: $fontWeight;
@@ -34,7 +35,7 @@
   font-weight: $fontNormal;
   color: $fontColor;
 }
-
+// Display Flex
 @mixin flexRowCenter($alignItem, $justifyContent) {
   display: flex;
   flex-direction: row;
@@ -46,4 +47,15 @@
   flex-direction: column;
   align-items: $alignItem;
   justify-content: $justifyContent;
+}
+
+// Btn Colored
+
+@mixin btnStyle($btnBackground) {
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
+  font-weight: $fontNormal;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: $primary-white;
+  background-color: $btnBackground;
 }

@@ -2,11 +2,12 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 18.75rem;
+  width: 15.75rem;
   height: 100vh;
   background: $primary-blue;
   white-space: nowrap;
   transition: all 0.2s ease-in-out;
+  z-index: 999;
 
   .sidebar-container {
     width: 100%;
@@ -20,7 +21,6 @@
 
       .logo {
         @include fontSubTitle($primary-white);
-
         &.active {
           span {
             display: none;
@@ -67,6 +67,27 @@
       .nav-item {
         span {
           display: none;
+        }
+      }
+    }
+  }
+
+  @include breakPoint('tablet') {
+    left: -100%;
+    width: 100%;
+    height: 100%;
+
+    &.active {
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+
+      .nav-list {
+        .nav-item {
+          span {
+            display: block;
+          }
         }
       }
     }
